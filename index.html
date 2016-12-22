@@ -2,30 +2,47 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>My Profile</title>
+	<meta http-equiv="pragma" content="no-cache">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0" />
-	<script src="js/jquery-1.8.3.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	
-	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<meta name="author" content="Chia-Jung Lin">
+    <meta name="copyright" content="Chia-Jung Lin">
+    <meta itemprop="name" content="My Profile">
+    <meta itemprop="image" content="https://s61227.github.io/profile/img/myphoto.jpg">
+    <meta itemprop="description" content="履歷資料介紹">
+    <meta property="og:title" content="My Profile">
+    <meta property="og:url" content="https://s61227.github.io/profile/">
+    <meta property="og:image" content="https://s61227.github.io/profile/img/myphoto.jpg">
+    <meta property="og:description" content="履歷資料介紹">
+    
+	<title>My Profile</title>   
+    <!--[if lt IE 9]>
+    <script>window.location.href='indexie.html';</script>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/style.css">
-	
+		
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/main.js"></script>
+
 </head>
 <body>
 
 <!-- header區域 ====================================================== -->
-<header>
+<header id="Home">
 	<div class="topSide_wrap">
 		<div class="topSide">
-			<h1><a href="#">Home</a></h1>
+			<h1><a href="#Home">Home</a></h1>
 			<nav>
 				<ul>
-					<li><a class="current" href="#"><strong>Profile</strong></a></li>
-					<li><a href="#"><strong>Resume</strong></a></li>
-					<li><a href="#"><strong>Skill</strong> </a></li>
-					<li><a href="#"><strong>Protfolio</strong></a></li>
-					<li><a href="#"><strong>Contact</strong></a></li>
+					<li><a class="current" href="#Profile"><strong>Profile</strong></a></li>
+					<li><a href="#Resume"><strong>Resume</strong></a></li>
+					<li><a href="#Skill"><strong>Skill</strong> </a></li>
+					<li><a href="#Protfolio"><strong>Protfolio</strong></a></li>
+					<li><a href="#Contact"><strong>Contact</strong></a></li>
 				</ul>
 			</nav>
 			<div class="navigate"></div>
@@ -36,7 +53,7 @@
 </header>
 
 <!-- section.page1區域 =============================================== -->
-<section class="page page1">
+<section class="page page1" id="Profile">
 	<article class="aboutMe">
 		<h2>PROFILE</h2>
 		<img src="img/myphoto.jpg" alt="">
@@ -48,7 +65,7 @@
 </section>
 
 <!-- section.page2區域 =============================================== -->
-<section class="page page2">
+<section class="page page2" id="Resume">
 	<h2>RESUME</h2>
 	<div class="container" id="timeline">
 		<div class="timeline_block">
@@ -93,7 +110,7 @@
 
 
 <!-- section.page3區域 =============================================== -->
-<section class="page page3">
+<section class="page page3" id="Skill">
 	<h2>I GOT SKILLS!</h2>
 	<p></p>
 	<ul class="graph animation-element">
@@ -106,13 +123,13 @@
 
 
 <!-- section.page4區域 =============================================== -->
-<section class="page page4">
+<section class="page page4" id="Protfolio">
 	<h2>PORTFOLIO</h2>
 	<ul class="tag">
 	  <li><a href="#all" class="isactive">全部</a></li>
 	  <li><a href="#web">網頁</a></li>
-	  <li><a href="#hot">專案</a></li>
-	  <li><a href="#dvd">遊戲</a></li>
+	  <li><a href="#project">專案</a></li>
+	  <li><a href="#game">遊戲</a></li>
 	</ul>
 
 	<div class="imgblock1">
@@ -133,7 +150,7 @@
 
 
 <!-- section.page5區域 =============================================== -->
-<section class="page page5">
+<section class="page page5" id="Contact">
 	<h2>CONTACT</h2>
 	<div class="contact_wrap">
 		<div class="contactList">
@@ -160,149 +177,5 @@
 <!-- footer ====================================================== -->
 <footer>©2016 Chia-Jung Lin All rights reserved.</footer>
 
-<script>
-/*--- 變數宣告 ---*/
-
-var mainNavTotal=$('.topSide nav li').length;		//主選單的數目 
-var sectionPos = Math.floor($('.page').position().top);  //sectionPos的Top位置
-var $animation_elements = $('.animation-element');
-var $window = $(window);
-
-/*header==================================================================*/
-
-function updateNavigatePosition() {
-      console.log('hi');
-	//判斷是否要出現導覽底線
-	if( Math.floor($window.scrollTop()) >= sectionPos){
-		$('.navigate').css('opacity',1);
-	}else{
-		$('.navigate').css('opacity',0);
-	}
-
-	//各頁位置判斷
-	$('section').each(function(i){
-		if($(this).offset().top <= $window.scrollTop()+200){
-			$('nav li a').filter('.current').removeClass('current');
-			$('nav li a').eq(i).addClass('current');
-			
-			var nowOut=$('.topSide nav li a.current').parent().index()+1;
-			$('.navigate').css('opacity',1).stop().animate({'right':(mainNavTotal-nowOut)*100+'px'},500,'easeOutQuint');
-		}
-	}); //$('section').each END
-}
-
-// Scroll事件
-$window.on("scroll", updateNavigatePosition); //$(window).scroll END
-
-//nav的hover設定
-$('nav li a').hover(
-	function() { /* 當滑入時 */
-	
-	//目前滑入的是誰
-	var now = $(this).parent().index()+1;
-	//移動導覽列
-	$('.navigate').css('opacity',1).stop().animate({'right':(mainNavTotal-now)*100+'px'},500,'easeOutQuint');
-
-	}, function() { /* 當滑出時 */
-		updateNavigatePosition();
-	}
-);
-
-//nav Click捲動至各分頁
-$('nav li a').click(function() {
-	/*
-	//設定所有的a元素移除current的類別名稱
-	$('nav li a').filter('.current').removeClass('current');
-	//設定現在點選的a元素增加current的類別名稱
-	$(this).addClass('current');*/	
-
-	$window.off("scroll", updateNavigatePosition);
-	$('nav li a').off("mouseleave");
-
-	//設定html及body進行animate動畫, 控制scrollTop屬性位置
-	var navClickIndex =$(this).parent().index();
-	var sectionTop= $('section').eq(navClickIndex).offset().top; 
-	$('html,body').stop().animate({scrollTop:sectionTop}, 1000, function() { 
-      
-		updateNavigatePosition();
-		$window.on("scroll", updateNavigatePosition);
-		$('nav li a').on( "mouseleave", updateNavigatePosition);
-	});
-	$('body').toggleClass('menu-show');
-
-});
-
-
-
-function check_if_in_view() {
-  var window_height = $window.height();
-  var window_top_position = $window.scrollTop();
-  var window_bottom_position = (window_top_position + window_height);
- 
-  $.each($animation_elements, function() {
-    var $element = $(this);
-    var element_height = $element.outerHeight();
-    var element_top_position = $element.offset().top;
-    var element_bottom_position = (element_top_position + element_height);
- 
-    //check to see if this current container is within viewport
-    if ((element_bottom_position >= window_top_position) &&
-        (element_top_position <= window_bottom_position)) {
-      $element.addClass('in-view');
-    } else {
-      $element.removeClass('in-view');
-    }
-  });
-}
-
-$window.on('scroll resize', check_if_in_view);
-$window.trigger('scroll');
-
-// Home按鈕至首頁
-$('.topSide h1 a').click(function() {
-	$('html,body').animate({scrollTop:0},1000);
-});
-
-// 捲至下一頁按鈕
-$('header>a.nextpage').click(function() {
-	$('html,body').animate({scrollTop: $('section').eq(0).offset().top},1000);
-});
-
-// menu_bar click事件
-$('.menu_bar .fa').click(function(){
-    $('body').toggleClass('menu-show');
-});
-
-
-
-/*section.page .page1==================================================================*/
-
-
-/*section.page .page2==================================================================*/
-
-
-/*section.page .page3==================================================================*/
-
-    
-/*section.page .page4==================================================================*/
-
-
-
-/*section.page .page5==================================================================*/
-
-// 作品篩選
-	$(".tag a").click(function(){
-	  $(".tag a").removeClass("isactive");
-	  $(this).addClass("isactive");
-	  var tag = $(this).attr("href").replace("#", "");
-	  $(".imgblock1>figure").hide();
-	  if(tag == "all"){
-		$(".imgblock1>figure").show();
-	  }else{
-		$('.imgblock1>figure[data-tag*="'+tag+'"]').show();
-	  }
-	});
-
-</script>	
 </body>
 </html>
