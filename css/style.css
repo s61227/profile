@@ -59,7 +59,7 @@ section:nth-of-type(5){ background:#d7ccc8;}
 
 /*header==================================================================*/
 header{
-	background: url(../img/index_bg.JPG) center center no-repeat;
+	background: url(../img/index_bg.jpg) center center no-repeat;
 	background-size: cover;
     background-position: center center;
 	position: relative;
@@ -91,7 +91,7 @@ header h1 a{
 }
 @media (max-width:768px){
     header{
-        background: url(../img/index_bg01.JPG) center center no-repeat;
+        background: url(../img/index_bg01.jpg) center center no-repeat;
         background-size: cover;
         background-position: center center;
     }
