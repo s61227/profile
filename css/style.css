@@ -464,7 +464,7 @@ section h2{
 @-ms-keyframes itme3{	0{width:0}	100%{width:60%;}}
 @-ms-keyframes itme4{	0{width:0}	100%{width:40%;}}
 
-@media (max-width:375px){
+@media (max-width:530px){
     .graph li{  
         width: 100%; float: left; 
         margin:0px 15px 30px 15px;
