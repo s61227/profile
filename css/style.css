@@ -55,6 +55,7 @@ section:nth-of-type(2){ background:#e1f5fe;}
 section:nth-of-type(3){ background:#ffe082;}
 section:nth-of-type(4){ background:#e1bee7;}
 section:nth-of-type(5){ background:#d7ccc8;}
+section:nth-of-type(6){ background:#b9e6ef;}
 
 
 /*header==================================================================*/
@@ -642,6 +643,24 @@ textarea {
         top: 170px; 
     }
 }
+
+/*section.page5==================================================================*/
+.page6 h2{ text-align: center;}
+.Blog_Wrap{
+    width:100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.Blog_Wrap .Blog_leftSide{
+    display: inline-block;
+    width: 70%;
+    margin-right: 20px;
+}
+.Blog_Wrap .Blog_rightSide{
+    display: inline-block;
+    width: 30%;
+}
+
 
 /*footer==================================================================*/
 footer {
