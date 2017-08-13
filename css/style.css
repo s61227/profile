@@ -653,13 +653,15 @@ textarea {
 }
 .Blog_Wrap .Blog_leftSide{
     display: inline-block;
-    width: 70%;
-    margin-right: 20px;
+    width: 100%;
+/*    margin-right: 20px;*/
 }
+/*
 .Blog_Wrap .Blog_rightSide{
     display: inline-block;
     width: 30%;
 }
+*/
 
 
 /*footer==================================================================*/
